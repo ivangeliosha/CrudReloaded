@@ -30,18 +30,6 @@ public class PeopleControllers {
         return "people/id";
     }
 
-    @GetMapping("/{name}")
-    public String name(Model model,@PathVariable("name") String name) {
-        model.addAttribute("personName",personDAO.findByName(name));
-        return "people/name";
-    }
-
-    @GetMapping("/{surname}")
-    public String surname(Model model,@PathVariable("surname") String surname) {
-        model.addAttribute("personSurname",personDAO.findBySurname(surname));
-        return "people/surname";
-    }
-
     @GetMapping("/new")
     public String newPerson(Model model) {
         model.addAttribute("person",new Person());
@@ -51,6 +39,21 @@ public class PeopleControllers {
     @PostMapping()
     public String createPerson(@ModelAttribute("person") Person person) {
         personDAO.save(person);
+        return "redirect:/people";
+    }
+    @GetMapping("/{id}/edit")
+    public String editPerson(Model model,@PathVariable("id") int id) {
+        model.addAttribute(personDAO.id(id));
+        return "people/edit";
+    }
+    @PatchMapping("{id}")
+    public String updatePerson(@ModelAttribute("person") Person person,@PathVariable("id") int id ) {
+        personDAO.update(id,person);
+        return "redirect:/people";
+    }
+    @DeleteMapping("{id}")
+    public String deletePerson(@PathVariable("id") int id) {
+        personDAO.delete(id);
         return "redirect:/people";
     }
 }

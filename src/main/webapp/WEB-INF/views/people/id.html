@@ -6,7 +6,12 @@
 </head>
 <body>
     <p th:text="${person.getName()}">Name</p>
-    <p th:text="${person.getSurname()}">Surname</p>
     <p th:text="${person.getId()}">ID</p>
+
+    <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+
+    <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
 </body>
 </html>

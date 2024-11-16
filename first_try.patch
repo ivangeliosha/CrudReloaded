@@ -1,0 +1,666 @@
+Subject: [PATCH] first try
+---
+Index: .idea/dbnavigator.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dbnavigator.xml b/.idea/dbnavigator.xml
+--- a/.idea/dbnavigator.xml	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ b/.idea/dbnavigator.xml	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -1,5 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="DBNavigator.Project.DatabaseBrowserManager">
++    <autoscroll-to-editor value="false" />
++    <autoscroll-from-editor value="true" />
++    <show-object-properties value="true" />
++    <loaded-nodes />
++  </component>
+   <component name="DBNavigator.Project.DatabaseFileManager">
+     <open-files />
+   </component>
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/.idea/uiDesigner.xml	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ b/pom.xml	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -2,11 +2,16 @@
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>SpringCourse</groupId>
+-  <artifactId>CrudReload</artifactId>
++  <artifactId>FuckingShit</artifactId>
+   <packaging>war</packaging>
+   <version>1.0-SNAPSHOT</version>
+-  <name>CrudReload Maven Webapp</name>
++  <name>FuckingShit Maven Webapp</name>
+   <url>http://maven.apache.org</url>
++
++  <properties>
++    <spring.version>6.1.14</spring.version>
++  </properties>
++
+   <dependencies>
+     <dependency>
+       <groupId>junit</groupId>
+@@ -14,8 +19,46 @@
+       <version>3.8.1</version>
+       <scope>test</scope>
+     </dependency>
++
++    <!-- Spring dependencies -->
++    <dependency>
++      <groupId>org.springframework</groupId>
++      <artifactId>spring-core</artifactId>
++      <version>${spring.version}</version>
++    </dependency>
++    <dependency>
++        <groupId>org.springframework</groupId>
++        <artifactId>spring-context</artifactId>
++        <version>${spring.version}</version>
++    </dependency>
++    <dependency>
++        <groupId>org.springframework</groupId>
++        <artifactId>spring-web</artifactId>
++        <version>${spring.version}</version>
++    </dependency>
++    <dependency>
++        <groupId>org.springframework</groupId>
++        <artifactId>spring-webmvc</artifactId>
++        <version>${spring.version}</version>
++    </dependency>
++
++    <!-- Thymeleaf -->
++    <dependency>
++        <groupId>org.thymeleaf</groupId>
++        <artifactId>thymeleaf-spring6</artifactId>
++        <version>3.1.2.RELEASE</version>
++    </dependency>
++
++    <!-- Jakarta Servlet API -->
++    <dependency>
++        <groupId>jakarta.servlet</groupId>
++        <artifactId>jakarta.servlet-api</artifactId>
++        <version>5.0.0</version> <!-- Проверьте актуальную версию, если необходимо -->
++        <scope>provided</scope>
++    </dependency>
+   </dependencies>
++
+   <build>
+-    <finalName>CrudReload</finalName>
++    <finalName>FuckingShit</finalName>
+   </build>
+ </project>
+Index: src/main/java/ProjectFiles/Controllers/PeopleControllers.java
+===================================================================
+diff --git a/src/main/java/ProjectFiles/Controllers/PeopleControllers.java b/src/main/java/ProjectFiles/Controllers/PeopleControllers.java
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/java/ProjectFiles/Controllers/PeopleControllers.java	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,56 @@
++package ProjectFiles.Controllers;
++
++import ProjectFiles.DAO.PersonDAO;
++import ProjectFiles.Models.Person;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Controller;
++import org.springframework.ui.Model;
++import org.springframework.web.bind.annotation.*;
++
++@Controller
++@RequestMapping("/people")
++public class PeopleControllers {
++
++    private final PersonDAO personDAO;
++
++    @Autowired
++    public PeopleControllers(PersonDAO personDAO) {
++        this.personDAO = personDAO;
++    }
++
++    @GetMapping()
++    public String people(Model model) {
++        model.addAttribute("people",personDAO.all());
++        return "/people/all";
++    }
++
++    @GetMapping("/{param}")
++    public String id(Model model,@PathVariable("param") int id) {
++        model.addAttribute("person",personDAO.id(id));
++        return "people/id";
++    }
++
++    @GetMapping("/{name}")
++    public String name(Model model,@PathVariable("name") String name) {
++        model.addAttribute("personName",personDAO.findByName(name));
++        return "people/name";
++    }
++
++    @GetMapping("/{surname}")
++    public String surname(Model model,@PathVariable("surname") String surname) {
++        model.addAttribute("personSurname",personDAO.findBySurname(surname));
++        return "people/surname";
++    }
++
++    @GetMapping("/new")
++    public String newPerson(Model model) {
++        model.addAttribute("person",new Person());
++        return "people/new";
++    }
++
++    @PostMapping()
++    public String createPerson(@ModelAttribute("person") Person person) {
++        personDAO.save(person);
++        return "redirect:/people";
++    }
++}
+\ No newline at end of file
+Index: src/main/java/ProjectFiles/DAO/PersonDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ProjectFiles/DAO/PersonDAO.java b/src/main/java/ProjectFiles/DAO/PersonDAO.java
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/java/ProjectFiles/DAO/PersonDAO.java	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,44 @@
++package ProjectFiles.DAO;
++
++import ProjectFiles.Models.Person;
++import org.springframework.stereotype.Component;
++
++import java.util.ArrayList;
++import java.util.List;
++
++@Component
++public class PersonDAO {
++    private int PERSON_ID;
++    private List<Person> people;
++
++    {
++        people = new ArrayList<>();
++        people.add(new Person(++PERSON_ID, "John", "Doe"));
++        people.add(new Person(++PERSON_ID, "Jane", "Doe"));
++        people.add(new Person(++PERSON_ID, "Jack", "Doe"));
++        people.add(new Person(++PERSON_ID, "Jona", "Boo"));
++    }
++
++    public List<Person> all() {
++        return people;
++    }
++
++    public Person id(int id) {
++        return people.stream().filter(person -> person.getId() == id).findAny().orElse(null);
++    }
++
++    public Person findByName(String name) {
++        return people.stream().filter(person -> person.getName().equals(name)).findAny().orElse(null);
++    }
++
++    public Person findBySurname(String surname) {
++        return people.stream().filter(person -> person.getSurname().equals(surname)).findAny().orElse(null);
++    }
++
++    public void save(Person person) {
++        person.setId(PERSON_ID);
++        people.add(person);
++    }
++
++
++}
+Index: src/main/java/ProjectFiles/Models/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ProjectFiles/Models/Person.java b/src/main/java/ProjectFiles/Models/Person.java
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/java/ProjectFiles/Models/Person.java	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,39 @@
++package ProjectFiles.Models;
++
++public class Person{
++    private int id;
++    private String name;
++    private String surname;
++
++    public Person(){}
++
++    public Person(int id, String name, String surname) {
++        this.id = id;
++        this.name = name;
++        this.surname = surname;
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getSurname() {
++        return surname;
++    }
++
++    public void setSurname(String surname) {
++        this.surname = surname;
++    }
++}
+Index: src/main/java/ProjectFiles/config/SpringConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ProjectFiles/config/SpringConfig.java b/src/main/java/ProjectFiles/config/SpringConfig.java
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/java/ProjectFiles/config/SpringConfig.java	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,51 @@
++package ProjectFiles.config;
++
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.context.ApplicationContext;
++import org.springframework.context.annotation.Bean;
++import org.springframework.context.annotation.ComponentScan;
++import org.springframework.context.annotation.Configuration;
++import org.springframework.web.servlet.config.annotation.EnableWebMvc;
++import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
++import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
++import org.thymeleaf.spring6.SpringTemplateEngine;
++import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
++import org.thymeleaf.spring6.view.ThymeleafViewResolver;
++
++
++@Configuration
++@ComponentScan("ProjectFiles")
++@EnableWebMvc
++public class SpringConfig implements WebMvcConfigurer {
++
++    private final ApplicationContext applicationContext;
++
++    @Autowired
++    public SpringConfig(ApplicationContext applicationContext) {
++        this.applicationContext = applicationContext;
++    }
++
++    @Bean
++    public SpringResourceTemplateResolver templateResolver() {
++        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
++        templateResolver.setApplicationContext(applicationContext);
++        templateResolver.setPrefix("/WEB-INF/views/");
++        templateResolver.setSuffix(".html");
++        return templateResolver;
++    }
++
++    @Bean
++    public SpringTemplateEngine templateEngine() {
++        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
++        templateEngine.setTemplateResolver(templateResolver());
++        templateEngine.setEnableSpringELCompiler(true);
++        return templateEngine;
++    }
++
++    @Override
++    public void configureViewResolvers(ViewResolverRegistry registry) {
++        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
++        resolver.setTemplateEngine(templateEngine());
++        registry.viewResolver(resolver);
++    }
++}
+\ No newline at end of file
+Index: src/main/java/ProjectFiles/config/SpringMVCDispatcherServletInitializator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ProjectFiles/config/SpringMVCDispatcherServletInitializator.java b/src/main/java/ProjectFiles/config/SpringMVCDispatcherServletInitializator.java
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/java/ProjectFiles/config/SpringMVCDispatcherServletInitializator.java	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,21 @@
++package ProjectFiles.config;
++
++import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
++
++public class SpringMVCDispatcherServletInitializator
++        extends AbstractAnnotationConfigDispatcherServletInitializer {
++    @Override
++    protected Class<?>[] getRootConfigClasses() {
++        return null;
++    }
++
++    @Override
++    protected Class<?>[] getServletConfigClasses() {
++        return new Class[]{ProjectFiles.config.SpringConfig.class};
++    }
++
++    @Override
++    protected String[] getServletMappings() {
++        return new String[]{"/"};
++    }
++}
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/all.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/all.html b/src/main/webapp/WEB-INF/views/people/all.html
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/webapp/WEB-INF/views/people/all.html	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,15 @@
++<!DOCTYPE html>
++<html lang="en" xmlns:th="http://thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>People</title>
++</head>
++<body>
++
++<div th:each="person : ${people}">
++    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()} + ' ' +
++    ${person.getSurname()}">user</a>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/id.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/id.html b/src/main/webapp/WEB-INF/views/people/id.html
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/webapp/WEB-INF/views/people/id.html	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,12 @@
++<!DOCTYPE html>
++<html lang="en" xmlns:th="http://thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>Person</title>
++</head>
++<body>
++    <p th:text="${person.getName()}">Name</p>
++    <p th:text="${person.getSurname()}">Surname</p>
++    <p th:text="${person.getId()}">ID</p>
++</body>
++</html>
+Index: src/main/webapp/WEB-INF/views/people/name.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/name.html b/src/main/webapp/WEB-INF/views/people/name.html
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/webapp/WEB-INF/views/people/name.html	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,10 @@
++<!DOCTYPE html>
++<html lang="en" xmlns:th="http://thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>Person Name</title>
++</head>
++<body>
++    <p th:text="${personName.getName()}">Name</p>
++</body>
++</html>
+Index: src/main/webapp/WEB-INF/views/people/new.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/new.html b/src/main/webapp/WEB-INF/views/people/new.html
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/webapp/WEB-INF/views/people/new.html	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,19 @@
++<!DOCTYPE html>
++<html lang="en" xmlns:th="http://thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>New</title>
++</head>
++<body>
++<form th:method="POST" th:action="@{/people}" th:object="${person}">
++    <label for="name" >Enter name</label>
++    <input type="text" th:field="*{name}" id="name" />
++    <br>
++    <label for="surname">Enter surname</label>
++    <input type="text" th:field="*{surname}" id="surname">
++    <br>
++    <input type="submit" value="Create"/>
++</form>
++
++</body>
++</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/surname.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/surname.html b/src/main/webapp/WEB-INF/views/people/surname.html
+new file mode 100644
+--- /dev/null	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
++++ b/src/main/webapp/WEB-INF/views/people/surname.html	(revision b67e16ddc9e0c2bf9b56553b734e06e4e7a92314)
+@@ -0,0 +1,10 @@
++<!DOCTYPE html>
++<html lang="en" xmlns:th="http://thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>Person</title>
++</head>
++<body>
++    <p th:text="${personSurname.getSurname()} + ' ' + ${personSurname.getId()}">Surname</p>
++</body>
++</html>
+Index: src/main/java/config/ApplicationContext.java
+===================================================================
+diff --git a/src/main/java/config/ApplicationContext.java b/src/main/java/config/ApplicationContext.java
+deleted file mode 100644
+--- a/src/main/java/config/ApplicationContext.java	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ /dev/null	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
+@@ -1,5 +0,0 @@
+-package config;
+-
+-public class ApplicationContext {
+-}
+-//er
+\ No newline at end of file
+Index: src/main/webapp/people/all.html
+===================================================================
+diff --git a/src/main/webapp/people/all.html b/src/main/webapp/people/all.html
+deleted file mode 100644
+--- a/src/main/webapp/people/all.html	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ /dev/null	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>All people</title>
+-</head>
+-<body>
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/people/id.html
+===================================================================
+diff --git a/src/main/webapp/people/id.html b/src/main/webapp/people/id.html
+deleted file mode 100644
+--- a/src/main/webapp/people/id.html	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ /dev/null	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Person</title>
+-</head>
+-<body>
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/people/new.html
+===================================================================
+diff --git a/src/main/webapp/people/new.html b/src/main/webapp/people/new.html
+deleted file mode 100644
+--- a/src/main/webapp/people/new.html	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
++++ /dev/null	(revision d5b82930deb8c6aeb9402135edcdf8cbccd2a0c4)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>New</title>
+-</head>
+-<body>
+-
+-</body>
+-</html>
+\ No newline at end of file

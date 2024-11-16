@@ -1,16 +1,18 @@
 package ProjectFiles.Models;
 
-public class Person{
+import ProjectFiles.DAO.PersonDAO;
+
+public class Person {
     private int id;
     private String name;
-    private String surname;
 
-    public Person(){}
+    public Person() {
 
-    public Person(int id, String name, String surname) {
+    }
+
+    public Person(int id, String name) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
     }
 
     public int getId() {
@@ -29,11 +31,4 @@ public class Person{
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }
