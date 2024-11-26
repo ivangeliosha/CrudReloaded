@@ -7,7 +7,6 @@ public class Person {
     private int id;
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    //@Pattern(regexp = "^[a-zA-Z]{3,20}$")
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
