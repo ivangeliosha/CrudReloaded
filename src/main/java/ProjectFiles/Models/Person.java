@@ -1,13 +1,11 @@
 package ProjectFiles.Models;
 
-import ProjectFiles.DAO.PersonDAO;
 import jakarta.validation.constraints.*;
 
 public class Person {
     private int id;
     @NotEmpty(message = "Name should not be empty")
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    @Pattern(regexp = "^[a-zA-Z]{3,20}$",message = "Write another way")
+    @Pattern(regexp = "[a-zA-Z]{3,20}",message = "Write another way")
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
@@ -32,8 +30,8 @@ public class Person {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int person_id) {
+        this.id = person_id;
     }
 
     public String getName() {

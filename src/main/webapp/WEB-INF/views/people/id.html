@@ -5,17 +5,24 @@
     <title>Person</title>
 </head>
 <body>
-    <p th:text="${person.getName()}">Name</p>
-    <p th:text="${person.getAge()}">Age</p>
-    <p th:text="${person.getEmail()}">Email</p>
-    <p th:text="'Your id: ' + ${person.getId()}">ID</p>
+    <p th:text="${person.getName()} + ', ' + ${person.getAge()}">Person info</p>
+    <hr>
+    <div th:if="${listBooks}">
+        <p th:if="${listBooks.size}>0">Piked Books:</p>
+        <div th:each="book : ${listBooks}">
+            <p th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', '+ ${book.getYear}">user</p>
+        </div>
+    </div>
+    <div th:unless="${listBooks.size}>0">
+        <p>0 books</p>
+    </div>
+    <hr>
 
-
-    <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
-
+    <a th:href="@{/people/{id}/edit(id=${person.getId()})}">
+        <button>Edit</button>
+    </a>
     <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="Delete"/>
     </form>
-    <a href="/people">Home</a>
 </body>
 </html>
