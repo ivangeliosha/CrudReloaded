@@ -2,6 +2,7 @@ package ProjectFiles.Controllers;
 
 import ProjectFiles.DAO.PersonDAO;
 import ProjectFiles.Models.Person;
+import ProjectFiles.util.PersonValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.*;
 public class PeopleControllers {
 
     private final PersonDAO personDAO;
+    private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleControllers(PersonDAO personDAO) {
+    public PeopleControllers(PersonDAO personDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
+        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -28,7 +31,7 @@ public class PeopleControllers {
 
     @GetMapping("/{id}")
     public String id(Model model,@PathVariable("id") int id) {
-        model.addAttribute("person",personDAO.id(id));
+        model.addAttribute("person",personDAO.show(id));
         return "people/id";
     }
 
@@ -39,8 +42,8 @@ public class PeopleControllers {
     }
 
     @PostMapping()
-    public String createPerson(@ModelAttribute("person") @Valid Person person,
-                               BindingResult bindingResult) {
+    public String createPerson(@ModelAttribute("person") @Valid Person person, @Valid BindingResult bindingResult) {
+        personValidator.validate(person, bindingResult);
         if (bindingResult.hasErrors()) {
             return "people/new";
         }
@@ -49,12 +52,13 @@ public class PeopleControllers {
     }
     @GetMapping("/{id}/edit")
     public String editPerson(Model model,@PathVariable("id") int id) {
-        model.addAttribute(personDAO.id(id));
+        model.addAttribute(personDAO.show(id));
         return "people/edit";
     }
     @PatchMapping("{id}")
     public String updatePerson(@ModelAttribute("person") @Valid Person person,BindingResult bindingResult,
                                @PathVariable("id") int id ) {
+        personValidator.validate(person, bindingResult);
         if (bindingResult.hasErrors()) {
             return "people/edit";
         }

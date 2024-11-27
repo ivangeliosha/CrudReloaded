@@ -2,17 +2,18 @@ package ProjectFiles.Models;
 
 import ProjectFiles.DAO.PersonDAO;
 import jakarta.validation.constraints.*;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Person {
     private int id;
-    @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
+    @NotEmpty(message = "Name should have words")
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
-    @Size(min = 1, max = 30, message = "Name should be between 2 and 30 characters")
     private int age;
     @Email(message = "Email should be valid")
-    @Size(min = 1, max = 30, message = "Name should be between 2 and 30 characters")
+    @NotEmpty(message = "Please write your email")
     private String email;
 
     public Person() {
