@@ -17,18 +17,5 @@ public class BatchController {
         this.personDAO = personDAO;
     }
 
-    @GetMapping()
-    public String index() {
-        return "/choice";
-    }
-    @GetMapping("/usual")
-    public String usual() {
-        personDAO.usualApdate();
-        return "redirect:/people";
-    }
-    @GetMapping("/batch")
-    public String batch() {
-        personDAO.batchApdate();
-        return "redirect:/people";
-    }
+
 }

@@ -25,7 +25,7 @@ public class PeopleControllers {
 
     @GetMapping()
     public String people(Model model) {
-        model.addAttribute("people",personDAO.all());
+        model.addAttribute("people",personDAO.index());
         return "/people/all";
     }
 
