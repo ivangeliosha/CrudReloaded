@@ -15,11 +15,21 @@ public class Book {
     private String author;
     @Min(value = 0, message = "Date should be greater than 0")
     private int year;
+
+    //private int personId;
+    //public Book(int id,int personId, String title, String author, int year) {
+    //    this.id = id;
+    //    this.personId = personId;
+    //    this.title = title;
+    //    this.author = author;
+    //    this.year = year;
+    //}
+
     public Book(int id, String title, String author, int year) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.year = year;
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.year = year;
     }
 
     public Book() {
@@ -58,4 +68,11 @@ public class Book {
         this.year = year;
     }
 
+    //public int getPersonId() {
+    //    return personId;
+    //}
+//
+    //public void setPersonId(int personId) {
+    //    this.personId = personId;
+    //}
 }

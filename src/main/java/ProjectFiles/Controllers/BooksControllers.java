@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 public class BooksControllers {
     private final BookDAO bookDAO;
     private final BookValidator bookValidator;
-    private final PersonDAO personDAO;
+    private final PersonDAO personDAO;//не удаляй
+
 
     @Autowired
     public BooksControllers(BookDAO bookDAO, BookValidator bookValidator, PersonDAO personDAO) {
         this.bookDAO = bookDAO;
         this.bookValidator = bookValidator;
+
         this.personDAO = personDAO;
     }
 
@@ -34,6 +36,8 @@ public class BooksControllers {
     @GetMapping("/{id}")
     public String show(Model model,@PathVariable("id") int id) {
         model.addAttribute("book",bookDAO.show(id));
+        model.addAttribute("person_id",bookDAO.showPersonId(id));
+        model.addAttribute("person",personDAO.show(bookDAO.showPersonId(id)));
         return "books/id";
     }
 
@@ -57,6 +61,17 @@ public class BooksControllers {
         model.addAttribute("book",bookDAO.show(id));
         return "books/edit";
     }
+    @GetMapping("/{id}/freedom")
+    public String freeForBook(Model model,@PathVariable("id") int id) {
+        model.addAttribute("book",bookDAO.show(id));
+        return "redirect:/books/";
+    }
+    @PatchMapping("/{id}/freedom")
+    public String freeBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
+        bookDAO.bookIsFree(id);
+        return "redirect:/books/"+id;
+    }
+
     @PatchMapping("{id}")
     public String updateBook(@ModelAttribute("book") @Valid Book book,BindingResult bindingResult,
                                @PathVariable("id") int id ) {

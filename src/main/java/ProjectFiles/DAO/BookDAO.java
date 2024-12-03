@@ -4,6 +4,7 @@ import ProjectFiles.Models.Book;
 import ProjectFiles.util.BookValidator;
 import ProjectFiles.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,20 @@ public class BookDAO {
         return jdbcTemplate.query("SELECT * FROM Book WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class))
                 .stream().findAny().orElse(null);
     }
+    public Integer showPersonId(int id) {
+    try {
+        return jdbcTemplate.queryForObject(
+            "SELECT person_id FROM Book WHERE id = ?",
+            new Object[]{id},
+            Integer.class
+        );
+    } catch (EmptyResultDataAccessException e) {
+        // Если ничего не найдено, возвращаем null
+        return null;
+    }
+}
+
+
 
     public void save(Book book) {
         jdbcTemplate.update("INSERT INTO Book(title, author, year) VALUES(?, ?, ?)",
@@ -40,6 +55,10 @@ public class BookDAO {
     public void update(int id, Book updatedBook) {
         jdbcTemplate.update("UPDATE Book SET title=?, author=?, year=? WHERE id=?", updatedBook.getTitle(),
                 updatedBook.getAuthor(),updatedBook.getYear(), id);
+    }
+    public int bookIsFree(int id) {
+
+        return jdbcTemplate.update("update book set person_id = null where id = ?", id);
     }
 
     public void delete(int id) {
