@@ -7,16 +7,17 @@
 <body>
     <p th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">Book info</p>
 
-    <div th:if="${person_id}">
-        <p th:text="'Book got by: ' + ${person.getName()}" ></p>
-        <form th:method="patch" th:action="@{/books/{id}/freedom(id=${book.id})}">
-            <input type="submit" value="free"/>
-        </form>
-    </a>
+    <div th:if="${person}">
+    <p th:text="'Book got by: ' + ${person.name}"></p>
+    <form th:method="patch" th:action="@{/books/{id}/freedom(id=${book.id})}">
+        <input type="submit" value="Free"/>
+    </form>
     </div>
-    <div th:unless="${person_id}">
-        <p>no one likes it</p>
+    <div th:unless="${person}">
+        <p>No one likes it</p>
+
     </div>
+
     <!-- Ссылка для редактирования книги -->
     <a th:href="@{/books/{id}/edit(id=${book.id})}">
         <button>Edit</button>

@@ -3,6 +3,7 @@ package ProjectFiles.Controllers;
 import ProjectFiles.DAO.BookDAO;
 import ProjectFiles.DAO.PersonDAO;
 import ProjectFiles.Models.Book;
+import ProjectFiles.Models.Person;
 import ProjectFiles.util.BookValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,31 @@ public class BooksControllers {
         return "/books/all";
     }
 
+    //@GetMapping("/{id}")
+    //public String show(Model model,@PathVariable("id") int id) {
+    //    model.addAttribute("book",bookDAO.show(id));
+    //    model.addAttribute("person_id",bookDAO.showPersonId(id));
+    //    model.addAttribute("person",personDAO.show(bookDAO.showPersonId(id)));
+    //    return "books/id";
+    //}
     @GetMapping("/{id}")
-    public String show(Model model,@PathVariable("id") int id) {
-        model.addAttribute("book",bookDAO.show(id));
-        model.addAttribute("person_id",bookDAO.showPersonId(id));
-        model.addAttribute("person",personDAO.show(bookDAO.showPersonId(id)));
-        return "books/id";
+    public String show(Model model, @PathVariable("id") int id) {
+    // Получаем данные о книге
+    model.addAttribute("book", bookDAO.show(id));
+    // Получаем person_id, если он существует
+    model.addAttribute("person_id", bookDAO.showPersonId(id));
+
+    // Если person_id найден, загружаем данные о человеке
+    if (bookDAO.showPersonId(id) != null) {
+        Person person = personDAO.show(bookDAO.showPersonId(id));
+        model.addAttribute("person", person);
+    } else {
+        model.addAttribute("person", null); // Явно указываем, что человека нет
     }
+
+    return "books/id";
+    }
+
 
     @GetMapping("/new")
     public String newBook(Model model) {
@@ -61,16 +80,18 @@ public class BooksControllers {
         model.addAttribute("book",bookDAO.show(id));
         return "books/edit";
     }
-    @GetMapping("/{id}/freedom")
-    public String freeForBook(Model model,@PathVariable("id") int id) {
-        model.addAttribute("book",bookDAO.show(id));
-        return "redirect:/books/";
-    }
+
     @PatchMapping("/{id}/freedom")
     public String freeBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
         bookDAO.bookIsFree(id);
         return "redirect:/books/"+id;
     }
+    @PatchMapping("/{id}/slave")
+    public String slaveBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
+        bookDAO.bookIsFree(id);
+        return "redirect:/books/"+id;
+    }
+
 
     @PatchMapping("{id}")
     public String updateBook(@ModelAttribute("book") @Valid Book book,BindingResult bindingResult,
