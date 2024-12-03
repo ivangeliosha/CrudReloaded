@@ -9,12 +9,18 @@
 
     <div th:if="${person}">
     <p th:text="'Book got by: ' + ${person.name}"></p>
-    <form th:method="patch" th:action="@{/books/{id}/freedom(id=${book.id})}">
-        <input type="submit" value="Free"/>
-    </form>
     </div>
     <div th:unless="${person}">
-        <p>No one likes it</p>
+        <form th:method="patch" th:action="@{/books/{id}/slave(id=${book.id})}">
+    <label for="personId">Choose owner:</label>
+    <select id="personId" name="personId">
+        <option th:each="person : ${people}"
+                th:value="${person.id}"
+                th:text="${person.name}">
+        </option>
+    </select>
+    <button type="submit">Okey</button>
+    </form>
 
     </div>
 

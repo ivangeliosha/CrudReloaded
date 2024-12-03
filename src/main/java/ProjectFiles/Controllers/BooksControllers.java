@@ -33,31 +33,28 @@ public class BooksControllers {
         model.addAttribute("books",bookDAO.people());
         return "/books/all";
     }
-
-    //@GetMapping("/{id}")
-    //public String show(Model model,@PathVariable("id") int id) {
-    //    model.addAttribute("book",bookDAO.show(id));
-    //    model.addAttribute("person_id",bookDAO.showPersonId(id));
-    //    model.addAttribute("person",personDAO.show(bookDAO.showPersonId(id)));
-    //    return "books/id";
-    //}
     @GetMapping("/{id}")
     public String show(Model model, @PathVariable("id") int id) {
     // Получаем данные о книге
     model.addAttribute("book", bookDAO.show(id));
-    // Получаем person_id, если он существует
-    model.addAttribute("person_id", bookDAO.showPersonId(id));
+
+    // Получаем person_id
+    Integer personId = bookDAO.showPersonId(id);
+    model.addAttribute("person_id", personId);
+
+    // Получаем список всех людей
+    model.addAttribute("people", personDAO.people());
 
     // Если person_id найден, загружаем данные о человеке
-    if (bookDAO.showPersonId(id) != null) {
-        Person person = personDAO.show(bookDAO.showPersonId(id));
-        model.addAttribute("person", person);
+    if (personId != null) {
+        model.addAttribute("person", personDAO.show(personId));
     } else {
         model.addAttribute("person", null); // Явно указываем, что человека нет
     }
 
     return "books/id";
-    }
+}
+
 
 
     @GetMapping("/new")
@@ -82,15 +79,18 @@ public class BooksControllers {
     }
 
     @PatchMapping("/{id}/freedom")
-    public String freeBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
-        bookDAO.bookIsFree(id);
+    public String freeBook(@ModelAttribute("person") @Valid Person person,@PathVariable("id") int id ) {
+        bookDAO.bookIsSlave(person.getId(),id);//добавить id
         return "redirect:/books/"+id;
     }
+
     @PatchMapping("/{id}/slave")
-    public String slaveBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
-        bookDAO.bookIsFree(id);
-        return "redirect:/books/"+id;
-    }
+    public String slaveBook(@RequestParam("personId") int personId, @PathVariable("id") int id) {
+    // Назначаем владельца книги
+    bookDAO.bookIsSlave(personId, id);
+    return "redirect:/books/" + id;
+}
+
 
 
     @PatchMapping("{id}")
@@ -101,7 +101,7 @@ public class BooksControllers {
             return "books/edit";
         }
         bookDAO.update(id,book);
-        return "redirect:/books";
+        return "redirect:/books/"+id;//+id
     }
     @DeleteMapping("/{id}")
     public String deleteBook(@ModelAttribute("book") Book book,

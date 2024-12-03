@@ -57,8 +57,12 @@ public class BookDAO {
                 updatedBook.getAuthor(),updatedBook.getYear(), id);
     }
     public int bookIsFree(int id) {
-
         return jdbcTemplate.update("update book set person_id = null where id = ?", id);
+    }
+
+
+    public void bookIsSlave(int person_id, int book_id) {
+        jdbcTemplate.update("update book set person_id = ? where id = ?",person_id,book_id );
     }
 
     public void delete(int id) {
