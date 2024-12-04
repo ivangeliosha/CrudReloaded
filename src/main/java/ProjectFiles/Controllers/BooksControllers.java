@@ -31,8 +31,8 @@ public class BooksControllers {
     public String books(Model model) {
         model.addAttribute("books",bookDAO.people());
         return "/books/all";
-    }
-//cszsfsfa
+    }//sadfadfa
+
     @GetMapping("/{id}")
     public String show(Model model, @PathVariable("id") int id) {
     // Получаем данные о книге
