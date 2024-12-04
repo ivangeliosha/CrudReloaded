@@ -7,11 +7,10 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.UniqueElements;
 
 public class Book {
-    //@UniqueElements
     private int id;
     @Pattern(regexp = "[A-Z]\\w{3,20}",message = "Write another way")
     private String title;
-    @Pattern(regexp = "[A-Z]\\w{3,10} [A-Z]\\w{3,10}",message = "Write another way")
+    @Pattern(regexp = "[A-Z]\\w{3,10} [A-Z]\\w{3,10}",message = "Write another way: Name Surname")
     private String author;
     @Min(value = 0, message = "Date should be greater than 0")
     private int year;

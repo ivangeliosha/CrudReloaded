@@ -3,7 +3,6 @@ package ProjectFiles.Controllers;
 import ProjectFiles.DAO.BookDAO;
 import ProjectFiles.DAO.PersonDAO;
 import ProjectFiles.Models.Book;
-import ProjectFiles.Models.Person;
 import ProjectFiles.util.BookValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,13 +78,13 @@ public class BooksControllers {
     }
 
     @PatchMapping("/{id}/freedom")
-    public String freeBook(@ModelAttribute("person") @Valid Person person,@PathVariable("id") int id ) {
-        bookDAO.bookIsSlave(person.getId(),id);//добавить id
+    public String freeBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
+        bookDAO.bookIsFree(id);//добавить id
         return "redirect:/books/"+id;
     }
 
     @PatchMapping("/{id}/slave")
-    public String slaveBook(@RequestParam("personId") int personId, @PathVariable("id") int id) {
+    public String slaveBook(@ModelAttribute("personId") int personId, @PathVariable("id") int id) {
     // Назначаем владельца книги
     bookDAO.bookIsSlave(personId, id);
     return "redirect:/books/" + id;

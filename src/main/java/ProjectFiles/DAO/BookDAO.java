@@ -56,8 +56,8 @@ public class BookDAO {
         jdbcTemplate.update("UPDATE Book SET title=?, author=?, year=? WHERE id=?", updatedBook.getTitle(),
                 updatedBook.getAuthor(),updatedBook.getYear(), id);
     }
-    public int bookIsFree(int id) {
-        return jdbcTemplate.update("update book set person_id = null where id = ?", id);
+    public void bookIsFree(int id) {
+        jdbcTemplate.update("update book set person_id = null where id = ?", id);
     }
 
 

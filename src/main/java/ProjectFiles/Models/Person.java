@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 public class Person {
     private int id;
     @NotEmpty(message = "Name should not be empty")
-    @Pattern(regexp = "[a-zA-Z]{3,20}",message = "Write another way")
+    @Pattern(regexp = "[A-Z]\\w{3,20}",message = "Write another way")
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;

@@ -2,27 +2,27 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Person</title>
+    <title>Пользователь</title>
 </head>
 <body>
     <p th:text="${person.getName()} + ', ' + ${person.getAge()}">Person info</p>
     <hr>
     <div th:if="${listBooks}">
-        <p th:if="${listBooks.size}>0">Piked Books:</p>
+        <p th:if="${listBooks.size}>0">Выбранные книги:</p>
         <div th:each="book : ${listBooks}">
             <p th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', '+ ${book.getYear}">user</p>
         </div>
     </div>
     <div th:unless="${listBooks.size}>0">
-        <p>0 books</p>
+        <p>У пользователя нет книг</p>
     </div>
     <hr>
 
     <a th:href="@{/people/{id}/edit(id=${person.getId()})}">
-        <button>Edit</button>
+        <button>Изменить</button>
     </a>
     <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Удалить"/>
     </form>
 </body>
 </html>
