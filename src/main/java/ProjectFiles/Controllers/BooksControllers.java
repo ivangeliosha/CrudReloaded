@@ -64,7 +64,7 @@ public class BooksControllers {
     }
 
     @PostMapping()
-    public String createBook(@ModelAttribute("book") @Valid Book book, @Valid BindingResult bindingResult) {
+    public String createBook(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult) {
         bookValidator.validate(book,bindingResult);
         if (bindingResult.hasErrors()) {
             return "books/new";
@@ -79,7 +79,7 @@ public class BooksControllers {
     }
 
     @PatchMapping("/{id}/freedom")
-    public String freeBook(@ModelAttribute("book") @Valid Book book,@PathVariable("id") int id ) {
+    public String freeBook(@ModelAttribute("book") @Valid Book book,BindingResult bindingResult,@PathVariable("id") int id ) {
         bookDAO.bookIsFree(id);//добавить id
         return "redirect:/books/"+id;
     }

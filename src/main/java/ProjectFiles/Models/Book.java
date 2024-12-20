@@ -1,31 +1,30 @@
 package ProjectFiles.Models;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.ISBN;
 import org.hibernate.validator.constraints.UniqueElements;
-
+@Entity
+@Table(name = "Book")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    @Pattern(regexp = "[A-Z]\\w{3,20}",message = "Write another way")
+    @Column(name = "title")
+    @Pattern(regexp = "[A-Z]\\w{3,100}",message = "Write another way")
     private String title;
-    @Pattern(regexp = "[A-Z]\\w{3,10} [A-Z]\\w{3,10}",message = "Write another way: Name Surname")
+    @Column(name = "author")
+    @Pattern(regexp = "[A-Z]\\w{3,100}",message = "Write another way")
     private String author;
+    @Column(name = "year")
     @Min(value = 0, message = "Date should be greater than 0")
     private int year;
+    @ManyToOne()
+    @JoinColumn(name = "person_id", referencedColumnName ="id")
+    private Person owner;
 
-    //private int personId;
-    //public Book(int id,int personId, String title, String author, int year) {
-    //    this.id = id;
-    //    this.personId = personId;
-    //    this.title = title;
-    //    this.author = author;
-    //    this.year = year;
-    //}
-
-    public Book(int id, String title, String author, int year) {
-    this.id = id;
+    public Book(String title, String author, int year) {
     this.title = title;
     this.author = author;
     this.year = year;
@@ -66,12 +65,24 @@ public class Book {
     public void setYear(int year) {
         this.year = year;
     }
+    public Person getOwner() {
+        return owner;
+    }
 
-    //public int getPersonId() {
-    //    return personId;
-    //}
-//
-    //public void setPersonId(int personId) {
-    //    this.personId = personId;
-    //}
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", year=" + year +
+                ", owner=" + "Dobav potom" +
+                '}';
+    }
+
+
 }
